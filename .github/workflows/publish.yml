@@ -18,13 +18,10 @@ jobs:
           python-version: "3.12"
 
       - name: Install build tools
-        run: pip install hatch
+        run: pip install build
 
       - name: Build
-        run: hatch build
+        run: python -m build
 
       - name: Publish
-        run: hatch publish
-        env:
-          HATCH_INDEX_USER: __token__
-          HATCH_INDEX_AUTH: ${{ secrets.PYPI_TOKEN }}
+        uses: pypa/gh-action-pypi-publish@76f52bc884231f62b54a093e2857d2c7291e0308 # v1.12.4
