@@ -3,9 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "mesa-sdk"
+name = "mesa-rest"
 version = "0.3.3"
-description = "Python SDK for the Mesa API"
+description = "Python REST SDK for the Mesa API"
 readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.8"
@@ -31,4 +31,4 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://mesa.dev"
-Repository = "https://github.com/mesa-dot-dev/sdk-python"
+Repository = "https://github.com/mesa-dot-dev/py-rest"

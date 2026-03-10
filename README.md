@@ -1,19 +1,19 @@
-# mesa-sdk
+# mesa-rest
 
-Python SDK for the [Mesa](https://mesa.dev) API.
+Python REST SDK for the [Mesa](https://mesa.dev) API.
 
 Generated from the OpenAPI specification using [openapi-python-client](https://github.com/openapi-generators/openapi-python-client).
 
 ## Installation
 
 ```bash
-pip install mesa-sdk
+pip install mesa-rest
 ```
 
 ## Usage
 
 ```python
-from mesa_sdk import Client
+from mesa_rest import Client
 
 client = Client(
     base_url="https://depot.mesa.dev/api/v1",
