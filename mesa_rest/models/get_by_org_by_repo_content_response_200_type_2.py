@@ -54,8 +54,8 @@ class GetByOrgByRepoContentResponse200Type2:
 
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.get_by_org_by_repo_content_response_200_type_2_entries_item_type_1 import GetByOrgByRepoContentResponse200Type2EntriesItemType1
         from ..models.get_by_org_by_repo_content_response_200_type_2_entries_item_type_2 import GetByOrgByRepoContentResponse200Type2EntriesItemType2
+        from ..models.get_by_org_by_repo_content_response_200_type_2_entries_item_type_1 import GetByOrgByRepoContentResponse200Type2EntriesItemType1
         from ..models.get_by_org_by_repo_content_response_200_type_2_entries_item_type_0 import GetByOrgByRepoContentResponse200Type2EntriesItemType0
         type_ = self.type_
 

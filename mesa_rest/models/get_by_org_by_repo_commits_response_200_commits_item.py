@@ -8,6 +8,7 @@ from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
+from ..types import UNSET, Unset
 from typing import cast
 
 if TYPE_CHECKING:
@@ -30,12 +31,14 @@ class GetByOrgByRepoCommitsResponse200CommitsItem:
             message (str):
             author (GetByOrgByRepoCommitsResponse200CommitsItemAuthor):
             committer (GetByOrgByRepoCommitsResponse200CommitsItemCommitter):
+            parents (list[str] | Unset):
      """
 
     sha: str
     message: str
     author: GetByOrgByRepoCommitsResponse200CommitsItemAuthor
     committer: GetByOrgByRepoCommitsResponse200CommitsItemCommitter
+    parents: list[str] | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
 
@@ -43,8 +46,8 @@ class GetByOrgByRepoCommitsResponse200CommitsItem:
 
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.get_by_org_by_repo_commits_response_200_commits_item_author import GetByOrgByRepoCommitsResponse200CommitsItemAuthor
         from ..models.get_by_org_by_repo_commits_response_200_commits_item_committer import GetByOrgByRepoCommitsResponse200CommitsItemCommitter
+        from ..models.get_by_org_by_repo_commits_response_200_commits_item_author import GetByOrgByRepoCommitsResponse200CommitsItemAuthor
         sha = self.sha
 
         message = self.message
@@ -52,6 +55,12 @@ class GetByOrgByRepoCommitsResponse200CommitsItem:
         author = self.author.to_dict()
 
         committer = self.committer.to_dict()
+
+        parents: list[str] | Unset = UNSET
+        if not isinstance(self.parents, Unset):
+            parents = self.parents
+
+
 
 
         field_dict: dict[str, Any] = {}
@@ -62,6 +71,8 @@ class GetByOrgByRepoCommitsResponse200CommitsItem:
             "author": author,
             "committer": committer,
         })
+        if parents is not UNSET:
+            field_dict["parents"] = parents
 
         return field_dict
 
@@ -86,11 +97,15 @@ class GetByOrgByRepoCommitsResponse200CommitsItem:
 
 
 
+        parents = cast(list[str], d.pop("parents", UNSET))
+
+
         get_by_org_by_repo_commits_response_200_commits_item = cls(
             sha=sha,
             message=message,
             author=author,
             committer=committer,
+            parents=parents,
         )
 
 

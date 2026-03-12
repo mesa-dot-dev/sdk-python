@@ -8,6 +8,7 @@ from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
+from ..types import UNSET, Unset
 from typing import cast
 
 if TYPE_CHECKING:
@@ -30,12 +31,14 @@ class GetByOrgByRepoCommitsByShaResponse200:
             message (str):
             author (GetByOrgByRepoCommitsByShaResponse200Author):
             committer (GetByOrgByRepoCommitsByShaResponse200Committer):
+            parents (list[str] | Unset):
      """
 
     sha: str
     message: str
     author: GetByOrgByRepoCommitsByShaResponse200Author
     committer: GetByOrgByRepoCommitsByShaResponse200Committer
+    parents: list[str] | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
 
@@ -53,6 +56,12 @@ class GetByOrgByRepoCommitsByShaResponse200:
 
         committer = self.committer.to_dict()
 
+        parents: list[str] | Unset = UNSET
+        if not isinstance(self.parents, Unset):
+            parents = self.parents
+
+
+
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -62,6 +71,8 @@ class GetByOrgByRepoCommitsByShaResponse200:
             "author": author,
             "committer": committer,
         })
+        if parents is not UNSET:
+            field_dict["parents"] = parents
 
         return field_dict
 
@@ -86,11 +97,15 @@ class GetByOrgByRepoCommitsByShaResponse200:
 
 
 
+        parents = cast(list[str], d.pop("parents", UNSET))
+
+
         get_by_org_by_repo_commits_by_sha_response_200 = cls(
             sha=sha,
             message=message,
             author=author,
             committer=committer,
+            parents=parents,
         )
 
 
