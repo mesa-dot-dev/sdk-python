@@ -11,6 +11,7 @@ from ..types import UNSET, Unset
 from typing import cast
 
 if TYPE_CHECKING:
+  from ..models.get_by_org_by_repo_response_200_tags import GetByOrgByRepoResponse200Tags
   from ..models.get_by_org_by_repo_response_200_upstream_type_0 import GetByOrgByRepoResponse200UpstreamType0
 
 
@@ -31,6 +32,7 @@ class GetByOrgByRepoResponse200:
             default_branch (str):
             head_oid (None | str):
             created_at (str):
+            tags (GetByOrgByRepoResponse200Tags):
             upstream (GetByOrgByRepoResponse200UpstreamType0 | None): Optionally add an upstream repository. You can
                 configure automatic syncing from the upstream repository.
      """
@@ -41,6 +43,7 @@ class GetByOrgByRepoResponse200:
     default_branch: str
     head_oid: None | str
     created_at: str
+    tags: GetByOrgByRepoResponse200Tags
     upstream: GetByOrgByRepoResponse200UpstreamType0 | None
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -49,6 +52,7 @@ class GetByOrgByRepoResponse200:
 
 
     def to_dict(self) -> dict[str, Any]:
+        from ..models.get_by_org_by_repo_response_200_tags import GetByOrgByRepoResponse200Tags
         from ..models.get_by_org_by_repo_response_200_upstream_type_0 import GetByOrgByRepoResponse200UpstreamType0
         id = self.id
 
@@ -62,6 +66,8 @@ class GetByOrgByRepoResponse200:
         head_oid = self.head_oid
 
         created_at = self.created_at
+
+        tags = self.tags.to_dict()
 
         upstream: dict[str, Any] | None
         if isinstance(self.upstream, GetByOrgByRepoResponse200UpstreamType0):
@@ -79,6 +85,7 @@ class GetByOrgByRepoResponse200:
             "default_branch": default_branch,
             "head_oid": head_oid,
             "created_at": created_at,
+            "tags": tags,
             "upstream": upstream,
         })
 
@@ -88,6 +95,7 @@ class GetByOrgByRepoResponse200:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        from ..models.get_by_org_by_repo_response_200_tags import GetByOrgByRepoResponse200Tags
         from ..models.get_by_org_by_repo_response_200_upstream_type_0 import GetByOrgByRepoResponse200UpstreamType0
         d = dict(src_dict)
         id = d.pop("id")
@@ -107,6 +115,11 @@ class GetByOrgByRepoResponse200:
 
 
         created_at = d.pop("created_at")
+
+        tags = GetByOrgByRepoResponse200Tags.from_dict(d.pop("tags"))
+
+
+
 
         def _parse_upstream(data: object) -> GetByOrgByRepoResponse200UpstreamType0 | None:
             if data is None:
@@ -133,6 +146,7 @@ class GetByOrgByRepoResponse200:
             default_branch=default_branch,
             head_oid=head_oid,
             created_at=created_at,
+            tags=tags,
             upstream=upstream,
         )
 

@@ -48,9 +48,9 @@ class GetByOrgByRepoDiffResponse200:
 
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.get_by_org_by_repo_diff_response_200_stats import GetByOrgByRepoDiffResponse200Stats
         from ..models.get_by_org_by_repo_diff_response_200_files_item import GetByOrgByRepoDiffResponse200FilesItem
         from ..models.get_by_org_by_repo_diff_response_200_filtered_files_item import GetByOrgByRepoDiffResponse200FilteredFilesItem
+        from ..models.get_by_org_by_repo_diff_response_200_stats import GetByOrgByRepoDiffResponse200Stats
         base = self.base
 
         head = self.head

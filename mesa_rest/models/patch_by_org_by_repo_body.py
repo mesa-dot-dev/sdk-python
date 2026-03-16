@@ -12,6 +12,7 @@ from ..types import UNSET, Unset
 from typing import cast
 
 if TYPE_CHECKING:
+  from ..models.patch_by_org_by_repo_body_tags import PatchByOrgByRepoBodyTags
   from ..models.patch_by_org_by_repo_body_upstream_type_0 import PatchByOrgByRepoBodyUpstreamType0
 
 
@@ -28,11 +29,13 @@ class PatchByOrgByRepoBody:
         Attributes:
             name (str | Unset):
             default_branch (str | Unset):
+            tags (PatchByOrgByRepoBodyTags | Unset):
             upstream (None | PatchByOrgByRepoBodyUpstreamType0 | Unset):
      """
 
     name: str | Unset = UNSET
     default_branch: str | Unset = UNSET
+    tags: PatchByOrgByRepoBodyTags | Unset = UNSET
     upstream: None | PatchByOrgByRepoBodyUpstreamType0 | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
@@ -41,10 +44,15 @@ class PatchByOrgByRepoBody:
 
 
     def to_dict(self) -> dict[str, Any]:
+        from ..models.patch_by_org_by_repo_body_tags import PatchByOrgByRepoBodyTags
         from ..models.patch_by_org_by_repo_body_upstream_type_0 import PatchByOrgByRepoBodyUpstreamType0
         name = self.name
 
         default_branch = self.default_branch
+
+        tags: dict[str, Any] | Unset = UNSET
+        if not isinstance(self.tags, Unset):
+            tags = self.tags.to_dict()
 
         upstream: dict[str, Any] | None | Unset
         if isinstance(self.upstream, Unset):
@@ -63,6 +71,8 @@ class PatchByOrgByRepoBody:
             field_dict["name"] = name
         if default_branch is not UNSET:
             field_dict["default_branch"] = default_branch
+        if tags is not UNSET:
+            field_dict["tags"] = tags
         if upstream is not UNSET:
             field_dict["upstream"] = upstream
 
@@ -72,11 +82,22 @@ class PatchByOrgByRepoBody:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        from ..models.patch_by_org_by_repo_body_tags import PatchByOrgByRepoBodyTags
         from ..models.patch_by_org_by_repo_body_upstream_type_0 import PatchByOrgByRepoBodyUpstreamType0
         d = dict(src_dict)
         name = d.pop("name", UNSET)
 
         default_branch = d.pop("default_branch", UNSET)
+
+        _tags = d.pop("tags", UNSET)
+        tags: PatchByOrgByRepoBodyTags | Unset
+        if isinstance(_tags,  Unset):
+            tags = UNSET
+        else:
+            tags = PatchByOrgByRepoBodyTags.from_dict(_tags)
+
+
+
 
         def _parse_upstream(data: object) -> None | PatchByOrgByRepoBodyUpstreamType0 | Unset:
             if data is None:
@@ -101,6 +122,7 @@ class PatchByOrgByRepoBody:
         patch_by_org_by_repo_body = cls(
             name=name,
             default_branch=default_branch,
+            tags=tags,
             upstream=upstream,
         )
 
