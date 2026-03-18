@@ -44,8 +44,8 @@ class PatchByOrgByRepoBody:
 
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.patch_by_org_by_repo_body_upstream_type_0 import PatchByOrgByRepoBodyUpstreamType0
         from ..models.patch_by_org_by_repo_body_tags import PatchByOrgByRepoBodyTags
+        from ..models.patch_by_org_by_repo_body_upstream_type_0 import PatchByOrgByRepoBodyUpstreamType0
         name = self.name
 
         default_branch = self.default_branch

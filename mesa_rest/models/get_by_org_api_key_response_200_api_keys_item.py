@@ -26,6 +26,7 @@ class GetByOrgApiKeyResponse200ApiKeysItem:
             id (str):
             name (None | str):
             scopes (list[str]):
+            repo_ids (list[str] | None):
             last_used_at (None | str):
             expires_at (None | str):
             revoked_at (None | str):
@@ -35,6 +36,7 @@ class GetByOrgApiKeyResponse200ApiKeysItem:
     id: str
     name: None | str
     scopes: list[str]
+    repo_ids: list[str] | None
     last_used_at: None | str
     expires_at: None | str
     revoked_at: None | str
@@ -55,6 +57,14 @@ class GetByOrgApiKeyResponse200ApiKeysItem:
 
 
 
+        repo_ids: list[str] | None
+        if isinstance(self.repo_ids, list):
+            repo_ids = self.repo_ids
+
+
+        else:
+            repo_ids = self.repo_ids
+
         last_used_at: None | str
         last_used_at = self.last_used_at
 
@@ -73,6 +83,7 @@ class GetByOrgApiKeyResponse200ApiKeysItem:
             "id": id,
             "name": name,
             "scopes": scopes,
+            "repo_ids": repo_ids,
             "last_used_at": last_used_at,
             "expires_at": expires_at,
             "revoked_at": revoked_at,
@@ -97,6 +108,22 @@ class GetByOrgApiKeyResponse200ApiKeysItem:
 
 
         scopes = cast(list[str], d.pop("scopes"))
+
+
+        def _parse_repo_ids(data: object) -> list[str] | None:
+            if data is None:
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                repo_ids_type_0 = cast(list[str], data)
+
+                return repo_ids_type_0
+            except (TypeError, ValueError, AttributeError, KeyError):
+                pass
+            return cast(list[str] | None, data)
+
+        repo_ids = _parse_repo_ids(d.pop("repo_ids"))
 
 
         def _parse_last_used_at(data: object) -> None | str:
@@ -129,6 +156,7 @@ class GetByOrgApiKeyResponse200ApiKeysItem:
             id=id,
             name=name,
             scopes=scopes,
+            repo_ids=repo_ids,
             last_used_at=last_used_at,
             expires_at=expires_at,
             revoked_at=revoked_at,

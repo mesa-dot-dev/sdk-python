@@ -44,8 +44,8 @@ class PostByOrgRepoBody:
 
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.post_by_org_repo_body_tags import PostByOrgRepoBodyTags
         from ..models.post_by_org_repo_body_upstream import PostByOrgRepoBodyUpstream
+        from ..models.post_by_org_repo_body_tags import PostByOrgRepoBodyTags
         name = self.name
 
         default_branch = self.default_branch

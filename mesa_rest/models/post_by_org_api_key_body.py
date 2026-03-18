@@ -27,10 +27,12 @@ class PostByOrgApiKeyBody:
         Attributes:
             name (str | Unset):
             scopes (list[PostByOrgApiKeyBodyScopesItem] | Unset):
+            repo_ids (list[str] | Unset):
      """
 
     name: str | Unset = UNSET
     scopes: list[PostByOrgApiKeyBodyScopesItem] | Unset = UNSET
+    repo_ids: list[str] | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
 
@@ -49,6 +51,12 @@ class PostByOrgApiKeyBody:
 
 
 
+        repo_ids: list[str] | Unset = UNSET
+        if not isinstance(self.repo_ids, Unset):
+            repo_ids = self.repo_ids
+
+
+
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -58,6 +66,8 @@ class PostByOrgApiKeyBody:
             field_dict["name"] = name
         if scopes is not UNSET:
             field_dict["scopes"] = scopes
+        if repo_ids is not UNSET:
+            field_dict["repo_ids"] = repo_ids
 
         return field_dict
 
@@ -80,9 +90,13 @@ class PostByOrgApiKeyBody:
                 scopes.append(scopes_item)
 
 
+        repo_ids = cast(list[str], d.pop("repo_ids", UNSET))
+
+
         post_by_org_api_key_body = cls(
             name=name,
             scopes=scopes,
+            repo_ids=repo_ids,
         )
 
 

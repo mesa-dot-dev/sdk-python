@@ -52,8 +52,8 @@ class GetByOrgRepoResponse200ReposItem:
 
 
     def to_dict(self) -> dict[str, Any]:
-        from ..models.get_by_org_repo_response_200_repos_item_upstream_type_0 import GetByOrgRepoResponse200ReposItemUpstreamType0
         from ..models.get_by_org_repo_response_200_repos_item_tags import GetByOrgRepoResponse200ReposItemTags
+        from ..models.get_by_org_repo_response_200_repos_item_upstream_type_0 import GetByOrgRepoResponse200ReposItemUpstreamType0
         id = self.id
 
         org = self.org
